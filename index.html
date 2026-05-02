@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="RailIQ smart train tracking dashboard with AI assistant and journey tools" />
+  <title>RailIQ | AI Smart Train Tracking</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">🚆 RailIQ</div>
+    <a class="logout-link" href="login.html" onclick="logout()">Logout</a>
+    <button id="menuToggle" class="menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="mainNav">☰</button>
+    <nav id="mainNav" class="nav-links">
+      <a href="#track">Live Track</a>
+      <a href="#pnr">PNR</a>
+      <a href="#predict">Delay AI</a>
+      <a href="#assistant">AI Assistant</a>
+      <a href="#alerts">Alerts</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Smart Rail Platform like ixigo + Where is My Train</h1>
+    <p>Live train tracking, PNR insights, smart delay prediction and AI travel assistant — all in one dashboard.</p>
+    <div class="hero-actions">
+      <button class="primary" onclick="scrollToSection('track')">Track Train</button>
+      <button class="secondary" onclick="scrollToSection('assistant')">Ask AI</button>
+    </div>
+    <p class="hint">Tip: Press <kbd>Enter</kbd> in inputs for quick actions.</p>
+  </section>
+
+  <main class="grid">
+    <section id="track" class="card">
+      <h2>📍 Live Train Tracking</h2>
+      <label for="trainNumber">Train Number</label>
+      <div class="row">
+        <input id="trainNumber" placeholder="Enter train number (e.g. 12951)" />
+        <button id="trackBtn">Track</button>
+      </div>
+      <div id="trackResult" class="result muted">Enter a train number to see simulated live status.</div>
+      <div id="recentSearches" class="chips"></div>
+    </section>
+
+    <section id="pnr" class="card">
+      <h2>🎫 PNR Status Checker</h2>
+      <label for="pnrNumber">PNR Number</label>
+      <div class="row">
+        <input id="pnrNumber" placeholder="Enter 10-digit PNR" maxlength="10" />
+        <button id="pnrBtn">Check PNR</button>
+      </div>
+      <div id="pnrResult" class="result muted">PNR analytics and seat probability will appear here.</div>
+    </section>
+
+    <section id="predict" class="card">
+      <h2>⏱️ AI Delay Predictor</h2>
+      <p class="muted">Model uses weather, route congestion, and historical punctuality signals.</p>
+      <div class="row">
+        <select id="weather">
+          <option value="clear">Clear Weather</option>
+          <option value="rain">Rain</option>
+          <option value="fog">Fog</option>
+        </select>
+        <select id="traffic">
+          <option value="low">Low Congestion</option>
+          <option value="medium">Medium Congestion</option>
+          <option value="high">High Congestion</option>
+        </select>
+        <button id="predictBtn">Predict Delay</button>
+      </div>
+      <div id="predictResult" class="result muted">Prediction engine waiting for input.</div>
+    </section>
+
+    <section id="assistant" class="card wide">
+      <h2>🤖 Rail AI Assistant</h2>
+      <div class="chat-window" id="chatWindow" aria-live="polite">
+        <div class="bubble ai">Namaste! I can help with train routes, best boarding station, platform tips and journey planning.</div>
+      </div>
+      <div class="row">
+        <input id="userQuery" placeholder="Ask: Best train from Delhi to Lucknow tonight?" />
+        <button id="assistantBtn">Send</button>
+      </div>
+    </section>
+
+    <section id="alerts" class="card">
+      <h2>🔔 Journey Alerts</h2>
+      <div class="row">
+        <input id="alertTrain" placeholder="Train number for alert" />
+        <input id="alertMinutes" type="number" min="5" max="180" value="30" />
+        <button id="alertBtn">Set Alert</button>
+      </div>
+      <div id="alertResult" class="result muted">Set boarding reminder alerts (stored locally).</div>
+    </section>
+
+    <section class="card">
+      <h2>🧠 Advanced Features You Can Add Next</h2>
+      <ul>
+        <li>Real-time GPS map integration (Leaflet/Google Maps).</li>
+        <li>Voice assistant in Hindi/English for non-typing users.</li>
+        <li>Smart coach crowd prediction & seat recommendation.</li>
+        <li>Offline mode with last synced train status cache.</li>
+        <li>UPI ticket alerts, fare drop notification, and station ETA alarms.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Built for modern Indian rail travelers • RailIQ Prototype</p>
+  </footer>
+
+  <script src="auth.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
