@@ -111,6 +111,13 @@ If backend runs on a different host/port:
 ./scripts/smoke_test.sh http://127.0.0.1:8000/api
 ```
 
+## High-confidence preflight (recommended)
+Agar aap 100% confidence chahte ho ki backend locally run ho raha hai, ye command run karo:
+```bash
+./scripts/preflight_check.sh
+```
+Ye python syntax, dependency imports, backend health, aur API smoke test sequentially verify karta hai.
+
 ## One-command full verification
 If backend is already running at `http://localhost:8000`, run:
 ```bash
