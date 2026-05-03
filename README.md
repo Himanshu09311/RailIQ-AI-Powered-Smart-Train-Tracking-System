@@ -111,6 +111,16 @@ If backend runs on a different host/port:
 ./scripts/smoke_test.sh http://127.0.0.1:8000/api
 ```
 
+## One-command full verification
+If backend is already running at `http://localhost:8000`, run:
+```bash
+./scripts/full_check.sh
+```
+Custom API base:
+```bash
+./scripts/full_check.sh http://127.0.0.1:8000/api
+```
+
 ## Push this code to GitHub (step-by-step)
 1. Create empty repository on GitHub (do not initialize README).
 2. Add remote in terminal:
