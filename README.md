@@ -48,8 +48,7 @@ Real backend-enabled RailIQ prototype with secure auth and train API proxy.
    python -m http.server 3000
    ```
 7. Browser me open karo:
-   - `http://127.0.0.1:3000/signup.html`
-   - phir `http://127.0.0.1:3000/login.html`
+   - `http://127.0.0.1:3000/login.html`
 
 ### Windows (PowerShell)
 1. Repo folder me aao:
@@ -81,8 +80,18 @@ Real backend-enabled RailIQ prototype with secure auth and train API proxy.
    py -m http.server 3000
    ```
 7. Browser me open karo:
-   - `http://127.0.0.1:3000/signup.html`
-   - phir `http://127.0.0.1:3000/login.html`
+   - `http://127.0.0.1:3000/login.html`
+
+## Troubleshooting (pip install error)
+Agar `pip install -r backend/requirements.txt` me `ProxyError` ya `403 Forbidden` aaye, to network/proxy issue hai (code issue nahi):
+
+```bash
+unset http_proxy https_proxy HTTP_PROXY HTTPS_PROXY
+pip install --upgrade pip
+pip install -r backend/requirements.txt
+```
+
+Corporate network ho to apni proxy setting IT team se verify karo, phir reinstall karo.
 
 ## Backend APIs
 - `POST /api/signup`
